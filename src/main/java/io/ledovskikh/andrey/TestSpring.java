@@ -1,0 +1,22 @@
+package io.ledovskikh.andrey;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * @author Andrey Ledovskikh
+ */
+public class TestSpring {
+
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        final MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+
+        musicPlayer.playMusic();
+
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
+
+        context.close();
+    }
+}
