@@ -5,4 +5,8 @@ package io.ledovskikh.andrey;
  */
 public interface Music {
     String getSong();
+
+    void init();
+    void destroy();
+
 }

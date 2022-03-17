@@ -3,10 +3,13 @@ package io.ledovskikh.andrey;
 /**
  * @author Andrey Ledovskikh
  */
-public class ClassicalMusic implements Music {
+//@Component
+//@Order(3)
+public class ClassicalMusic extends AbstractMusic {
 
     @Override
     public String getSong() {
         return "Hungarian Rhapsody";
     }
+
 }
