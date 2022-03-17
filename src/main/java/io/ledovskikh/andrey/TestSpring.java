@@ -1,6 +1,6 @@
 package io.ledovskikh.andrey;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * @author Andrey Ledovskikh
@@ -8,14 +8,20 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpring {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        final MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        final MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        final MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        musicPlayer.playMusic();
+        firstMusicPlayer.playMusic();
 
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
+        System.out.println(firstMusicPlayer.getName());
+        System.out.println(firstMusicPlayer.getVolume());
+
+        secondMusicPlayer.setVolume(100);
+
+        System.out.println(firstMusicPlayer);
+        System.out.println(secondMusicPlayer);
 
         context.close();
     }
