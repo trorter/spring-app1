@@ -10,7 +10,7 @@ import java.util.Arrays;
 @Configuration
 @ComponentScan(value = "io.ledovskikh.andrey")
 @PropertySource("musicPlayer.properties")
-public class SpringConfig {
+public class SpringConfig  {
 
     @Bean
     public RockMusic rockMusic() {
